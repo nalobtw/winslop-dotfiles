@@ -1,0 +1,550 @@
+watch_stylesheet: true
+watch_config: true
+debug: false
+update_check: true
+komorebi:
+  start_command: komorebic start --whkd --masir
+  stop_command: komorebic stop --whkd --masir
+  reload_command: komorebic reload-configuration
+bars:
+  primary-bar:
+    enabled: true
+    screens:
+    - primary
+    class_name: yasb-bar
+    alignment:
+      position: bottom
+      center: true
+    animation:
+      enabled: true
+      duration: 160
+    blur_effect:
+      enabled: false
+      acrylic: false
+      dark_mode: true
+      round_corners: false
+      round_corners_type: normal
+      border_color: '#777C90'
+    window_flags:
+      always_on_top: true
+      windows_app_bar: true
+    dimensions:
+      width: 100%
+      height: 26
+    padding:
+      top: 0
+      left: 6
+      bottom: 6
+      right: 6
+    widgets:
+      left:
+      - lines
+      - komorebi_workspaces
+      - lines
+      - komorebi_active_layout
+      - lines
+      - taskbar
+      - lines
+      - media
+      - cava
+      center:
+      - lines
+      - clock
+      - weather
+      - lines
+      right:
+      - lines
+      - cpu
+      - memory
+      - lines
+      - systray
+      - wallpapers
+      - notifications
+      - control_center
+      - power_menu
+      - lines
+widgets:
+  clock:
+    type: yasb.clock.ClockWidget
+    options:
+      label: '{%I:%M:%S}'
+      label_alt: '{%I:%M:%S}'
+      timezones: []
+      tooltip: false
+      calendar:
+        blur: true
+        round_corners: false
+        round_corners_type: normal
+        border_color: '#777C90'
+        alignment: center
+        direction: up
+        offset_top: 6
+        offset_left: 0
+        show_holidays: true
+        show_week_numbers: true
+        show_years: true
+        extended: false
+        country_code: LU
+      callbacks:
+        on_left: toggle_calendar
+      locale: en_GB
+  weather:
+    type: yasb.weather.WeatherWidget
+    options:
+      label: <span>{icon}</span> {temp}
+      label_alt: '{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}'
+      api_key: YOUR_WEATHERAPI_KEY
+      update_interval: 600
+      hide_decimal: true
+      tooltip: false
+      location: Luxembourg
+      callbacks:
+        on_left: toggle_card
+      icons:
+        sunnyDay: 
+        clearNight: 
+        cloudyDay: 
+        cloudyNight: 
+        rainyDay: 
+        rainyNight: 
+        blizzardDay: "\uDB83\uDF36"
+        blizzardNight: "\uDB83\uDF36"
+        foggyDay: 
+        foggyNight: 
+        thunderstormDay: 
+        thunderstormNight: 
+        default: 
+      weather_card:
+        blur: true
+        round_corners: false
+        round_corners_type: normal
+        border_color: '#777C90'
+        alignment: center
+        direction: up
+        icon_size: 64
+        show_hourly_forecast: true
+        time_format: 24h
+        hourly_point_spacing: 76
+        hourly_icon_size: 32
+        icon_smoothing: true
+        temp_line_width: 2
+        current_line_color: '#9FC3CD'
+        current_line_width: 1
+        current_line_style: dot
+      label_shadow:
+        enabled: true
+        color: black
+        radius: 0
+        offset:
+        - 1
+        - 1
+  power_menu:
+    type: yasb.power_menu.PowerMenuWidget
+    options:
+      label: 
+      uptime: true
+      blur: true
+      blur_background: true
+      animation_duration: 200
+      button_row: 5
+      buttons:
+        shutdown:
+        - 
+        - Rage Quit
+        restart:
+        - 
+        - Oops, Reboot
+        signout:
+        - "\uDB80\uDF43"
+        - Dip Out
+        hibernate:
+        - 
+        - Bear Mode
+        sleep:
+        - ⏾
+        - Nap Time
+        cancel:
+        - ''
+        - 'Nah, Im Good '
+  wallpapers:
+    type: yasb.wallpapers.WallpapersWidget
+    options:
+      label: "<span>\uDB80\uDD1B</span>"
+      image_path: __WINSLOP_WALLPAPER_DIR__
+      change_automatically: false
+      update_interval: 60
+      keybindings:
+      - keys: alt+w
+        action: toggle_gallery
+      engine:
+        enabled: true
+        animation: diamond
+      gallery:
+        image_width: 520
+        image_corner_radius: 0
+        type: strip
+        orientation: landscape
+        accent_color: auto
+        blur: true
+  cava:
+    type: yasb.cava.CavaWidget
+    options:
+      bar_height: 12
+      min_bar_height: 0
+      gradient: 1
+      reverse: 0
+      foreground: '#879dbd'
+      gradient_color_1: '#8fb3c2'
+      gradient_color_2: '#879dbd'
+      gradient_color_3: '#b9a2d0'
+      bars_number: 12
+      bar_spacing: 2
+      bar_width: 4
+      hide_empty: false
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+  cpu:
+    type: yasb.cpu.CpuWidget
+    options:
+      label: '{info[percent][total]:.0f}%'
+      progress_bar:
+        enabled: true
+        position: left
+        size: 17
+        thickness: 3
+        color: '#9fc3cd'
+        background_color: '#2d2a3e'
+        animation: true
+      animation:
+        enabled: true
+        type: FadeInOut
+        duration: 180
+      update_interval: 2000
+      callbacks:
+        on_right: toggle_menu
+        on_left: toggle_menu
+      menu:
+        enabled: true
+        show_graph: true
+        show_graph_grid: true
+        graph_history_size: 60
+        alignment: right
+        direction: up
+        offset_top: 6
+        blur: true
+        round_corners: false
+        round_corners_type: normal
+        border_color: '#777C90'
+  memory:
+    type: yasb.memory.MemoryWidget
+    options:
+      label: '{virtual_mem_percent}%'
+      update_interval: 5000
+      progress_bar:
+        enabled: true
+        size: 17
+        thickness: 3
+        position: left
+        color: '#b9a2d0'
+        background_color: '#2d2a3e'
+        animation: true
+      animation:
+        enabled: true
+        type: FadeInOut
+        duration: 180
+      callbacks:
+        on_left: toggle_menu
+        on_right: toggle_menu
+      memory_thresholds:
+        low: 25
+        medium: 50
+        high: 90
+      menu:
+        enabled: true
+        show_graph: true
+        show_graph_grid: true
+        graph_history_size: 60
+        alignment: right
+        direction: up
+        offset_top: 6
+        blur: true
+        round_corners: false
+        round_corners_type: normal
+        border_color: '#777C90'
+  komorebi_workspaces:
+    type: komorebi.workspaces.WorkspaceWidget
+    options:
+      label_offline: Komorebi offline
+      label_workspace_btn: '{index}'
+      label_workspace_active_btn: '{index}'
+      label_workspace_populated_btn: '{index}'
+      label_default_name: ''
+      label_zero_index: false
+      hide_empty_workspaces: false
+      hide_if_offline: false
+      toggle_workspace_layer:
+        enabled: false
+        tiling_label: Tiling
+        floating_label: Floating
+      app_icons:
+        enabled_populated: false
+        enabled_active: false
+        size: 12
+        max_icons: 0
+        hide_label: false
+        hide_duplicates: false
+        hide_floating: false
+  komorebi_active_layout:
+    type: komorebi.active_layout.ActiveLayoutWidget
+    options:
+      hide_if_offline: false
+      label: '{icon}'
+      layouts:
+      - bsp
+      - columns
+      - rows
+      - grid
+      - vertical_stack
+      - horizontal_stack
+      - ultrawide_vertical_stack
+      - right_main_vertical_stack
+      - scrolling
+      layout_icons:
+        bsp: BSP
+        columns: COL
+        rows: ROW
+        grid: GRID
+        vertical_stack: VSTK
+        horizontal_stack: HSTK
+        ultrawide_vertical_stack: UWSTK
+        right_main_vertical_stack: RMV
+        scrolling: SCRL
+        monocle: MONO
+        maximized: MAX
+        floating: FLOAT
+        paused: PAUSE
+      callbacks:
+        on_left: toggle_layout_menu
+        on_middle: do_nothing
+        on_right: do_nothing
+      layout_menu:
+        blur: true
+        round_corners: false
+        round_corners_type: normal
+        border_color: '#777C90'
+        alignment: right
+        direction: up
+        offset_top: 6
+        offset_left: 0
+  media:
+    type: yasb.media.MediaWidget
+    options:
+      label: '{title}'
+      label_alt: '{title}'
+      separator: ' - '
+      hide_empty: true
+      callbacks:
+        on_left: toggle_media_menu
+      max_field_size:
+        label: 30
+        label_alt: 30
+      show_thumbnail: false
+      controls_only: false
+      controls_left: false
+      controls_hide: true
+      thumbnail_alpha: 80
+      thumbnail_padding: 8
+      thumbnail_corner_radius: 0
+      icons:
+        prev_track: ' '
+        next_track: ' '
+        play: "\uDB81\uDF5B"
+        pause: 
+      media_menu:
+        blur: true
+        round_corners: false
+        round_corners_type: normal
+        border_color: '#777C90'
+        alignment: right
+        direction: up
+        offset_top: 6
+        offset_left: 0
+        thumbnail_corner_radius: 0
+        thumbnail_size: 96
+        max_title_size: 60
+        max_artist_size: 20
+        show_source: true
+      media_menu_icons:
+        play: 
+        pause: 
+        prev_track: 
+        next_track: 
+      scrolling_label:
+        enabled: false
+        update_interval_ms: 33
+        style: left
+        separator: ' | '
+        label_padding: 0
+        always_scroll: false
+        ease_slope: 20
+        ease_pos: 0.8
+        ease_min: 0.5
+  lines:
+    type: yasb.custom.CustomWidget
+    options:
+      label: '|'
+      label_alt: '|'
+      class_name: separator-widget
+      callbacks:
+        on_left: do_nothing
+  taskbar:
+    type: yasb.taskbar.TaskbarWidget
+    options:
+      icon_size: 0
+      tooltip: true
+      show_only_visible: false
+      strict_filtering: true
+      monitor_exclusive: true
+      animation:
+        enabled: true
+        duration: 160
+      preview:
+        enabled: true
+        width: 240
+        delay: 180
+        padding: 8
+        margin: 8
+        blur: false
+        peek: false
+      title_label:
+        enabled: true
+        show: always
+        min_length: 10
+        max_length: 15
+      ignore_apps:
+        processes: []
+        titles: []
+        classes: []
+  control_center:
+    type: yasb.control_center.ControlCenterWidget
+    options:
+      label: "<span>\uDB80\uDFE9</span>"
+      tooltip: true
+      sections_order:
+      - system_controls
+      - quick_actions
+      - sliders
+      - power
+      - media
+      popup:
+        alignment: right
+        direction: up
+        border_color: '#777C90'
+        round_corners: false
+        blur: true
+        round_corners_type: normal
+        offset_top: 6
+        offset_left: 6
+      sections:
+        system_controls:
+          profile_image_size: 28
+          power_icon: 
+          lock_icon: 
+          settings_icon: 
+        quick_actions:
+          show: true
+          columns: 3
+          label_position: default
+          actions:
+          - id: toggle_dnd
+            label: Do Not Disturb
+            icon: 
+          - id: toggle_mute
+            label: Mute
+            icon: 
+          - id: toggle_mic_mute
+            label: Mic Mute
+            icon: 
+          - id: screenshot
+            label: Screenshot
+            icon: 
+          - id: touch_keyboard
+            label: Keyboard
+            icon: 
+          - id: toggle_theme
+            label: Dark Mode
+            icon: 
+        sliders:
+          show: true
+          brightness:
+            show_slider: true
+            icon: 
+            show_source_selector: true
+            source_selector_icon: 
+          volume:
+            show_slider: true
+            icon: 
+            show_source_selector: true
+            source_selector_icon: 
+          microphone:
+            show_slider: true
+            icon: 
+            show_source_selector: true
+            source_selector_icon: 
+        media:
+          show: true
+          thumbnail_size: 36
+          thumbnail_radius: 0
+          icons:
+            prev_track: 
+            next_track: 
+            play: 
+            pause: 
+        power:
+          show: true
+          power_plan_title: Power Plan
+          power_mode_title: Power Mode
+          button_menu_icon: 
+      callbacks:
+        on_left: toggle_menu
+  notifications:
+    type: yasb.notifications.NotificationsWidget
+    options:
+      label: "<span>\uDB84\uDD6B</span>"
+      label_alt: '{count} notifications'
+      hide_empty: true
+      tooltip: false
+      callbacks:
+        on_left: toggle_notification
+        on_right: do_nothing
+        on_middle: do_nothing
+  systray:
+    type: yasb.systray.SystrayWidget
+    options:
+      class_name: systray
+      label_collapsed: 
+      label_expanded: 
+      label_position: left
+      icon_size: 18
+      pin_click_modifier: alt
+      show_unpinned: true
+      show_unpinned_button: true
+      show_battery: false
+      show_in_popup: 1
+      show_volume: false
+      icons_per_row: 6
+      show_network: false
+      use_hook: false
+      hide_icons: []
+      popup:
+        blur: true
+        round_corners: false
+        round_corners_type: normal
+        border_color: '#777C90'
+        alignment: center
+        direction: up
+        offset_top: 6
+        offset_left: 0

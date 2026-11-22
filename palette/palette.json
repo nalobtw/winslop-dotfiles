@@ -1,0 +1,29 @@
+{
+  "name": "Winslop Midnight Alley",
+  "source": "Sampled and curated from the user-supplied alley.PNG; source page https://whvn.cc/o5jv65",
+  "colours": {
+    "background": "#151320",
+    "mantle": "#1A1726",
+    "bar": "#201D2C",
+    "surface": "#2B2839",
+    "surface_hover": "#3E3A4C",
+    "overlay": "#5B5366",
+    "border": "#777C90",
+    "text": "#C5BEB1",
+    "subtext": "#A49AAE",
+    "muted": "#877889",
+    "mauve": "#B9A2D0",
+    "cyan": "#9FC3CD",
+    "sapphire": "#8FB3C2",
+    "blue": "#879DBD",
+    "rose": "#CF879B",
+    "peach": "#D4A68F",
+    "yellow": "#D6C6A2",
+    "green": "#A9BEB0",
+    "teal": "#9FC1BF"
+  },
+  "transparency_policy": {
+    "shell_surfaces": "85% opaque / 15% transparent",
+    "blur": "Only selected utility popups; application windows remain opaque"
+  }
+}

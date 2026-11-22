@@ -1,0 +1,38 @@
+{
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "profiles": {
+    "defaults": {
+      "font": {
+        "face": "JetBrainsMono Nerd Font",
+        "size": 11
+      },
+      "colorScheme": "Winslop Midnight",
+      "useAcrylic": false
+    }
+  },
+  "schemes": [
+    {
+      "name": "Winslop Midnight",
+      "background": "#151320",
+      "foreground": "#C5BEB1",
+      "cursorColor": "#B9A2D0",
+      "selectionBackground": "#5B5366",
+      "black": "#151320",
+      "red": "#CF879B",
+      "green": "#A9BEB0",
+      "yellow": "#D6C6A2",
+      "blue": "#879DBD",
+      "purple": "#B9A2D0",
+      "cyan": "#9FC3CD",
+      "white": "#C5BEB1",
+      "brightBlack": "#5B5366",
+      "brightRed": "#CF879B",
+      "brightGreen": "#A9BEB0",
+      "brightYellow": "#D6C6A2",
+      "brightBlue": "#879DBD",
+      "brightPurple": "#B9A2D0",
+      "brightCyan": "#9FC3CD",
+      "brightWhite": "#E3DCD2"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# STARTER ONLY — inspect the live Windows 11 Start Menu XAML first.
+# Paste into Windows 11 Start Menu Styler > Advanced > Control styles.
+# The target names below are common examples, not a guarantee for every build.
+controlStyles:
+  - target: "Border#AcrylicBorder"
+    styles:
+      - "Background=#D9151320"
+      - "CornerRadius=0"
+      - "BorderBrush=#777C90"
+      - "BorderThickness=1"
+  - target: "Border#AppBorder"
+    styles:
+      - "Background=#D9201D2C"
+      - "CornerRadius=0"
+      - "BorderBrush=#777C90"
+      - "BorderThickness=1"

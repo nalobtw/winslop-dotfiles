@@ -1,0 +1,15 @@
+{
+  "theme": "Catppuccin Mocha",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_size": 13,
+  "ui_font_size": 13,
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font",
+    "font_size": 12
+  },
+  "ui_font_weight": 500,
+  "buffer_font_weight": 400,
+  "autosave": "on_focus_change",
+  "format_on_save": "on"
+}
