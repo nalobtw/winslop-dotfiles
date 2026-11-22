@@ -190,7 +190,7 @@ winslop-dotfiles/
 ### 1. Clone or extract the repository
 
 ```powershell
-git clone https://codeberg.org/nalobtw/winslop-dotfiles.git
+git clone https://github.com/nalobtw/winslop-dotfiles.git
 cd winslop-dotfiles
 ```
 
